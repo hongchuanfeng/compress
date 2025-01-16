@@ -26,29 +26,29 @@
 
   <div class="row" style="margin-right: 0px">
     <div class="col-xs-6 col-sm-4">
-      <h1 class="h-left">image compression</h1>
+      <h1 class="h-left">在线图片压缩</h1>
     </div>
     <div class="col-xs-8 h-right">
       <a title="在线base64转码" class="text-white link-a"  href="https://base64.openai2025.com" target="_blank">
-        Base64 Tool
+        Base64转码
       </a>
-      <a title="json格式化工具" class="text-white link-a" href="https://json.openai2025.com" target="_blank">
-        JSON Tool
+      <a title="JSON格式化工具" class="text-white link-a" href="https://json.openai2025.com" target="_blank">
+        JSON工具
       </a>
       <a title="正则表达式测试工具" class="text-white link-a" href="https://reg.openai2025.com" target="_blank">
-        Regular expression tool
+        正则表达式工具
       </a>
       <a title="mosaic Processing tool" class="text-white link-a" href="https://mosaic.openai2025.com" target="_blank">
-        mosaic tool
+        图片马赛克工具
       </a>
       <a title="水印处理" class="text-white link-a" href="https://watermark.openai2025.com" target="_blank">
-        watermark Processing
+        图片水印处理
       </a>
       <a title="Convert images to Excel" class="text-white link-a" href="https://img2excel.openai2025.com" target="_blank">
-        images to Excel
+        图片转Excel
       </a>
       <a title="Image to icon conversion" class="text-white link-a" href="https://icon.openai2025.com" target="_blank">
-        Image to icon
+        图片转icon
       </a>
     </div>
   </div>
@@ -57,7 +57,7 @@
 
       <div class="settings">
         <label>
-          scaling:
+          缩放比例:
           <input
             type="range"
             id="scaleFactor"
@@ -67,10 +67,10 @@
             step="5"
           />
           <span id="scaleValue">70%</span>
-          <span class="recommended-tag">recommend: 70%</span>
+          <span class="recommended-tag">推荐: 70%</span>
         </label>
         <label>
-          compression quality:
+          压缩质量:
           <input
             type="range"
             id="quality"
@@ -80,10 +80,10 @@
             step="5"
           />
           <span id="qualityValue">70%</span>
-          <span class="recommended-tag">recommend: 70%</span>
+          <span class="recommended-tag">推荐: 70%</span>
         </label>
         <label>
-          output format:
+          输出格式:
           <select id="format">
             <option value="image/jpeg">JPEG</option>
             <option value="image/png">PNG</option>
@@ -93,32 +93,41 @@
       </div>
 
       <div class="upload-area" id="uploadArea">
-        <input type="file" id="upload" accept="image/jpeg,image/png,image/webp"/>
+        <input
+          type="file"
+          id="upload"
+          accept="image/jpeg,image/png,image/webp"
+        />
         <div class="upload-content">
           <i>📁</i>
-          <div class="upload-text">Drag the image here or click upload</div>
-          <div class="upload-hint">Supports JPG, PNG, WebP formats, up to 10MB</div>
+          <div class="upload-text">拖拽图片到这里 或 点击上传</div>
+          <div class="upload-hint">支持 JPG、PNG、WebP 格式，最大 10MB</div>
           <div class="error-message" id="errorMessage"></div>
         </div>
       </div>
 
-      <button onclick="compressImage()">Start compressing</button>
+      <button onclick="compressImage()">开始压缩</button>
 
       <div class="progress-bar">
         <div class="progress" id="progress"></div>
       </div>
 
       <div class="file-info" id="fileInfo">
-        <div>original size: <span id="originalSize">0 KB</span></div>
-        <div>Compressed size: <span id="compressedSize">0 KB</span></div>
-        <div>compressibility: <span id="compressionRatio">0%</span></div>
+        <div>原始大小: <span id="originalSize">0 KB</span></div>
+        <div>压缩后大小: <span id="compressedSize">0 KB</span></div>
+        <div>压缩率: <span id="compressionRatio">0%</span></div>
       </div>
 
       <canvas id="canvas" style="display: none"></canvas>
-      <a id="download" style="display: none; margin-top: 10px" download="compressed-image.jpg">Download compressed images</a>
+      <a
+        id="download"
+        style="display: none; margin-top: 10px"
+        download="compressed-image.jpg"
+        >下载压缩后的图片</a
+      >
       <div id="preview"></div>
     </div>
-    <center>(<a href="./index-cn.html">Simplified Chinese</a> | <a href="./index.html">English</a>)</center>
+    <center>(<a href="./index-cn.html">简体中文</a> | <a href="./index.html">English</a>)</center>
     <script>
       // 统一定义 DOM 元素
       const uploadArea = document.getElementById("uploadArea");
