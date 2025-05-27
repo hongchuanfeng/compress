@@ -317,7 +317,7 @@ button:hover {
     pointer-events: none;
 }
 .h-left{
-    padding-left: 80px;
+    text-align: right;
 }
 .h-right a{
     line-height: 80px;
