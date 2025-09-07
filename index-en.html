@@ -22,11 +22,139 @@
     <link rel="canonical" href="https://compress.openai2025.com/">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="css.css">
+    <style>
+      :root { color-scheme: light; }
+      /* Base & Layout */
+      html, body { background: #ffffff; color: #1f2d3d; }
+      .container { max-width: 980px; margin: 24px auto; padding: 0 16px; background: #ffffff !important; }
+      .h-left { font-size: 24px; margin: 16px 0; font-weight: 700; }
+      .h-right { text-align: right; margin: 16px 0; padding-right: 22px; }
+      .h-right a { color: #0d6efd; text-decoration: none; }
+      .h-right a:hover { text-decoration: underline; }
+      .topbar { background: #ffffff; border-bottom: 1px solid #eef2f6; }
+
+      /* Settings (responsive grid) */
+      .settings {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        background: #ffffff;
+        border: 1px solid #e6ecf1;
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      }
+      .settings label {
+        display: grid;
+        grid-template-columns: 140px 1fr auto auto;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+      }
+      .settings input[type="range"] { width: 100%; }
+      .settings select {
+        width: 100%;
+        border: 1px solid #d8e0e7;
+        border-radius: 8px;
+        padding: 6px 10px;
+        background: #fff;
+        color: #1f2d3d;
+      }
+      #format, #format option { color: #1f2d3d; }
+      .recommended-tag {
+        color: #64748b;
+        font-size: 12px;
+        background: #f1f5f9;
+        padding: 2px 8px;
+        border-radius: 999px;
+        justify-self: end;
+      }
+      @media (max-width: 576px) {
+        .settings label { grid-template-columns: 110px 1fr auto; }
+        .settings label select { grid-column: 2 / -1; }
+        .recommended-tag { display: none; }
+        .h-right { text-align: left; padding-right: 0; }
+      }
+
+      /* Upload Area */
+      .upload-area {
+        position: relative;
+        margin-top: 16px;
+        background: #ffffff;
+        border: 2px dashed #cdd7e1;
+        border-radius: 16px;
+        padding: 28px;
+        text-align: center;
+        transition: border-color .2s ease, background-color .2s ease, box-shadow .2s;
+      }
+      .upload-area.drag-over {
+        border-color: #0d6efd;
+        background: #f0f7ff;
+        box-shadow: inset 0 0 0 1px rgba(13,110,253,.08);
+      }
+      .file-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+      .upload-content i { font-style: normal; font-size: 42px; display: block; }
+      .upload-text { font-size: 16px; margin-top: 8px; font-weight: 600; }
+      .upload-hint { color: #718096; font-size: 13px; margin-top: 4px; }
+      .error-message { margin-top: 8px; color: #dc3545; font-size: 13px; }
+
+      /* Button */
+      .btn-primary-lg {
+        display: inline-block;
+        margin-top: 16px;
+        background: #0d6efd;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 18px;
+        font-weight: 600;
+        box-shadow: 0 1px 2px rgba(0,0,0,.06);
+        transition: transform .05s ease, box-shadow .2s ease;
+        cursor: pointer;
+      }
+      .btn-primary-lg:hover { box-shadow: 0 2px 8px rgba(13,110,253,.25); }
+      .btn-primary-lg:active { transform: translateY(1px); }
+
+      /* Progress bar */
+      .progress-bar { display: none; margin-top: 14px; height: 10px; background: #e9eff5; border-radius: 999px; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,0.04); }
+      .progress { height: 100%; width: 0%; background: linear-gradient(90deg, #0d6efd, #5aa6ff); border-radius: 999px; transition: width .2s ease; }
+
+      /* File info */
+      .file-info {
+        display: none;
+        margin-top: 16px;
+        background: #ffffff;
+        border: 1px solid #e6ecf1;
+        border-radius: 12px;
+        padding: 12px 14px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .file-info > div { font-size: 14px; color: #334155; }
+      @media (max-width: 576px) { .file-info { grid-template-columns: 1fr; } }
+
+      /* Preview */
+      #preview { margin-top: 16px; }
+      #preview img { max-width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+
+      /* Language switch */
+      .lang-switch { margin: 20px 0 28px; color: #64748b; }
+      .lang-switch a { color: #0d6efd; text-decoration: none; }
+      .lang-switch a:hover { text-decoration: underline; }
+
+      /* Force light even in dark mode */
+      @media (prefers-color-scheme: dark) {
+        html, body { background: #ffffff; color: #1f2d3d; }
+        .topbar, .settings, .upload-area, .file-info { background: #ffffff; }
+        #format, #format option { color: #1f2d3d; }
+      }
+    </style>
   </head>
   <body>
 
 
-  <div class="row" style="margin-right: 0px">
+  <div class="row topbar" style="margin-right: 0px">
     <div class="col-xs-6 col-sm-6">
       <h1 class="h-left">image compression</h1>
     </div>
@@ -75,7 +203,7 @@
       </div>
 
       <div class="upload-area" id="uploadArea">
-        <input type="file" id="upload" accept="image/jpeg,image/png,image/webp"/>
+        <input type="file" id="upload" accept="image/jpeg,image/png,image/webp" class="file-input"/>
         <div class="upload-content">
           <i>📁</i>
           <div class="upload-text">Drag the image here or click upload</div>
@@ -84,7 +212,7 @@
         </div>
       </div>
 
-      <button onclick="compressImage()">Start compressing</button>
+      <button type="button" class="btn-primary-lg" onclick="compressImage()">Start compressing</button>
 
       <div class="progress-bar">
         <div class="progress" id="progress"></div>
@@ -100,7 +228,7 @@
       <a id="download" style="display: none; margin-top: 10px" download="compressed-image.jpg">Download compressed images</a>
       <div id="preview"></div>
     </div>
-    <center>(<a href="./index.html">Simplified Chinese</a> | <a href="./index-en.html">English</a>)</center>
+    <center class="lang-switch">(<a href="./index.html">Simplified Chinese</a> | <a href="./index-en.html">English</a>)</center>
     <script>
       // 统一定义 DOM 元素
       const uploadArea = document.getElementById("uploadArea");
