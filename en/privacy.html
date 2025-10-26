@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Image Compressor - Free Smart Image Compressor | Privacy Policy - ChuanDao AI</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNJ5YP1KLF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VNJ5YP1KLF');
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 20px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .effective-date {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+        }
+
+        .effective-date h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            font-size: 1.2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+        }
+
+        .info-type {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .purpose-list {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .purpose-list li {
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .right-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .right-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .right-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .right-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #333;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .contact-info h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-detail {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            margin-top: 30px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .toc {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .toc h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .toc-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .toc-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 80px 15px 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 25px;
+                margin-bottom: 20px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .rights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-detail {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 70px 15px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-card {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* 导航栏样式 */
+        .modern-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-brand i {
+            font-size: 1.75rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            color: #b8b8d1;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 1px;
+        }
+
+        .nav-link.external {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-link.external:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 手机端导航样式 */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            transition: left 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            color: #b8b8d1;
+            text-decoration: none;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .mobile-nav-link:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .mobile-nav-link.active {
+            color: white;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .mobile-nav-link.external {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .mobile-nav-link.external:hover {
+            transform: translateX(10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.4);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 现代化头部导航 -->
+    <nav class="modern-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-image"></i>
+                <span>Smart Image Compressor</span>
+            </div>
+            
+            <!-- 桌面端导航菜单 -->
+            <div class="nav-links desktop-nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>About Us</span>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact Us</span>
+                </a>
+                <a href="privacy.html" class="nav-link active">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Privacy Policy</span>
+                </a>
+                <a href="../privacy.html" class="nav-link external">
+                    <i class="fas fa-language"></i>
+                    <span>简体中文</span>
+                </a>
+            </div>
+            
+            <!-- 手机端汉堡菜单按钮 -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        
+        <!-- 手机端导航菜单 -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+        <a href="index.html" class="mobile-nav-link">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="about.html" class="mobile-nav-link">
+            <i class="fas fa-users"></i>
+            <span>About Us</span>
+        </a>
+        <a href="contact.html" class="mobile-nav-link">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+        </a>
+        <a href="privacy.html" class="mobile-nav-link active">
+            <i class="fas fa-shield-alt"></i>
+            <span>Privacy Policy</span>
+        </a>
+        <a href="../privacy.html" class="mobile-nav-link external">
+            <i class="fas fa-language"></i>
+            <span>简体中文</span>
+        </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-shield-alt"></i> Privacy Policy</h1>
+            <p>Privacy Policy - Protecting your personal information security</p>
+        </div>
+
+        <div class="content-card">
+            <div class="effective-date">
+                <h3><i class="fas fa-calendar-alt"></i> Effective Date</h3>
+                <p>January 1, 2025</p>
+            </div>
+
+            <div class="toc">
+                <h3><i class="fas fa-list"></i> Table of Contents</h3>
+                <div class="toc-list">
+                    <div class="toc-item" onclick="scrollToSection('section1')">Information Collection</div>
+                    <div class="toc-item" onclick="scrollToSection('section2')">Purpose of Use</div>
+                    <div class="toc-item" onclick="scrollToSection('section3')">Storage Protection</div>
+                    <div class="toc-item" onclick="scrollToSection('section4')">Information Sharing</div>
+                    <div class="toc-item" onclick="scrollToSection('section5')">User Rights</div>
+                    <div class="toc-item" onclick="scrollToSection('section6')">Third-Party Services</div>
+                    <div class="toc-item" onclick="scrollToSection('section7')">Contact Us</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px; color: #666;">
+                <strong>ChuanDao AI</strong> (hereinafter referred to as "we") respects and protects users' personal privacy. This privacy policy aims to explain how we collect, use, store, and protect your personal information, as well as your rights regarding personal information. By using this website and related services, you indicate that you have read, understood, and agreed to all contents of this policy.
+            </p>
+        </div>
+
+        <div class="content-card">
+            <div class="section" id="section1">
+                <h3 class="section-title">
+                    <i class="fas fa-database"></i>
+                    1. Types of Information We Collect
+                </h3>
+                <div class="section-content">
+                    <p>We only collect information necessary to provide services, mainly including the following two categories:</p>
+                    
+                    <div class="info-type">
+                        <i class="fas fa-user-edit"></i> Information You Actively Provide
+                    </div>
+                    <p>Such as name, email, contact phone number when you register an account, submit a message, or contact us; if you use specific website functions (such as comments, submissions), it may involve the content you publish and related information.</p>
+                    
+                    <div class="info-type">
+                        <i class="fas fa-cog"></i> Information We Automatically Collect
+                    </div>
+                    <p>When you visit the website, server automatically records device information (such as device model, operating system), browsing data (such as pages visited, dwell time, IP address), cookies and similar technical data (used to optimize page display and user experience, you can disable cookies in browser settings, but this may affect some functions).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section" id="section2">
+                <h3 class="section-title">
+                    <i class="fas fa-bullseye"></i>
+                    2. Purpose of Information Use
+                </h3>
+                <div class="section-content">
+                    <p>Personal information we collect is only used for the following legal purposes and will not exceed the necessary scope:</p>
+                    
+                    <div class="purpose-list">
+                        <ul>
+                            <li><strong>Service Provision:</strong> Provide and maintain website services, ensure pages load normally and functions operate stably</li>
+                            <li><strong>Experience Optimization:</strong> Optimize user experience, such as recommending relevant content based on browsing habits, improving website design</li>
+                            <li><strong>Communication & Feedback:</strong> Communication and feedback, such as replying to your inquiries, sending service-related notifications (non-marketing, you can unsubscribe at any time)</li>
+                            <li><strong>Security:</strong> Security protection, identifying and preventing malicious access and fraudulent behavior, protecting legitimate rights and interests of the website and users</li>
+                            <li><strong>Compliance Requirements:</strong> Comply with legal and regulatory requirements, such as cooperating with regulatory compliance inspections and handling legal disputes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section" id="section3">
+                <h3 class="section-title">
+                    <i class="fas fa-lock"></i>
+                    3. Information Storage & Protection
+                </h3>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-clock"></i> Storage Methods & Duration</h4>
+                        <p>Your personal information will be stored in our authorized secure servers, with a storage period of "reasonable time required to achieve collection purposes" or the minimum retention period required by laws and regulations; after the period expires, we will clear information through anonymization or permanent deletion.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-shield-alt"></i> Security Protection Measures</h4>
+                        <p>We adopt technical and administrative dual protection, such as data encryption, access control, regular security audits, etc., to prevent information from being leaked, tampered with, or lost; however, please note that internet transmission has certain security risks, we cannot guarantee 100% absolute security, you need to properly keep your account information (such as passwords).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section" id="section4">
+                <h3 class="section-title">
+                    <i class="fas fa-share-alt"></i>
+                    4. Information Sharing & Disclosure
+                </h3>
+                <div class="section-content">
+                    <p>We promise not to sell or rent your personal information to any third parties, and only share or disclose in the following limited circumstances:</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-handshake"></i> With Your Explicit Consent</h4>
+                        <p>After obtaining your explicit consent, share with authorized partners (such as third-party customer service tools, partners must comply with the same privacy protection standards)</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-gavel"></i> Legal Requirements</h4>
+                        <p>When required by laws and regulations, judicial authorities or administrative regulatory departments, we must provide information</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Protect Legitimate Interests</h4>
+                        <p>To protect our or users' legitimate rights and interests, public interests (such as combating fraud, illegal activities), disclose within reasonable and necessary scope</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section" id="section5">
+                <h3 class="section-title">
+                    <i class="fas fa-user-check"></i>
+                    5. Your Rights
+                </h3>
+                <div class="section-content">
+                    <p>As an information subject, you are entitled to the following rights by law, which can be exercised by contacting us through the contact information in Section 7 of this policy:</p>
+                    
+                    <div class="rights-grid">
+                        <div class="right-item">
+                            <i class="fas fa-eye right-icon"></i>
+                            <div class="right-title">Access & Correction Rights</div>
+                            <p>Query your personal information storage status and request correction of incorrect or incomplete information</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-trash right-icon"></i>
+                            <div class="right-title">Right to Deletion</div>
+                            <p>If you believe information collection exceeds necessary scope, or you no longer use website services, you can request deletion of relevant personal information</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-undo right-icon"></i>
+                            <div class="right-title">Right to Withdraw Consent</div>
+                            <p>You may withdraw your consent to "non-essential information collection" at any time (such as cookie use), but this may affect some functions</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-exclamation-circle right-icon"></i>
+                            <div class="right-title">Right to Complain</div>
+                            <p>If you believe our information processing violates this policy or laws and regulations, you can file a complaint with us, and we will reply within 15 business days</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section" id="section6">
+                <h3 class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    6. Third-Party Services
+                </h3>
+                <div class="section-content">
+                    <p>The website may contain third-party links (such as social media icons, ad network links) or embedded third-party tools (such as analytics tools). These third parties have independent privacy policies, and we are not responsible for their information collection practices. We recommend that you carefully read their privacy policies before accessing third-party services.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section" id="section7">
+                <h3 class="section-title">
+                    <i class="fas fa-phone"></i>
+                    7. Policy Changes & Contact Us
+                </h3>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-edit"></i> Policy Changes</h4>
+                        <p>We may modify this policy based on changes in laws and regulations or business adjustments. Modified content will be published in prominent positions on the website (such as the bottom of the homepage). Continued use of the website after publication is deemed as your acceptance of the modifications.</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h4><i class="fas fa-envelope"></i> Contact Information</h4>
+                        <p>If you have questions about this policy, need to exercise personal information rights, or want to file a complaint, please contact us through the following methods:</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <i class="fas fa-envelope" style="color: #667eea; font-size: 1.5rem; margin-bottom: 10px;"></i>
+                                <h5>Official Email</h5>
+                                <p>hcf@foxmail.com</p>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-phone" style="color: #667eea; font-size: 1.5rem; margin-bottom: 10px;"></i>
+                                <h5>Contact Phone</h5>
+                                <p>786483815</p>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-map-marker-alt" style="color: #667eea; font-size: 1.5rem; margin-bottom: 10px;"></i>
+                                <h5>Operating Address</h5>
+                                <p>130 Longhua Avenue, Longhua District, Shenzhen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 手机端菜单切换功能
+        document.addEventListener("DOMContentLoaded", () => {
+            const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+            const mobileNav = document.getElementById("mobileNav");
+            
+            if (mobileMenuToggle && mobileNav) {
+                mobileMenuToggle.addEventListener("click", () => {
+                    mobileMenuToggle.classList.toggle("active");
+                    mobileNav.classList.toggle("active");
+                    document.body.style.overflow = mobileNav.classList.contains("active") ? "hidden" : "auto";
+                });
+                
+                // 点击菜单项后关闭菜单
+                const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener("click", () => {
+                        mobileMenuToggle.classList.remove("active");
+                        mobileNav.classList.remove("active");
+                        document.body.style.overflow = "auto";
+                    });
+                });
+                
+                // 点击菜单外部关闭菜单
+                mobileNav.addEventListener("click", (e) => {
+                    if (e.target === mobileNav) {
+                        mobileMenuToggle.classList.remove("active");
+                        mobileNav.classList.remove("active");
+                        document.body.style.overflow = "auto";
+                    }
+                });
+            }
+        });
+
+        function scrollToSection(sectionId) {
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 添加滚动效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <!-- Version Information -->
+    <footer style="text-align: center; padding: 20px; background: rgba(0,0,0,0.1); color: #b8b8d1; font-size: 0.9rem; margin-top: 40px;">
+        <p>Smart Image Compressor v1.0.0 | © 2025 ChuanDao AI | Technical Support: hcf@foxmail.com</p>
+    </footer>
+</body>
+</html>

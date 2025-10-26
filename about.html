@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线图片压缩工具 - 免费智能图片压缩器 | 关于我们 - 传道AI</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNJ5YP1KLF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VNJ5YP1KLF');
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .business-section {
+            margin: 30px 0;
+        }
+
+        .business-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .business-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .business-title {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .social-responsibility {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            margin-top: 30px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 80px 15px 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 25px;
+                margin-bottom: 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .stat-item {
+                padding: 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .business-item {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 70px 15px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-card {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 导航栏样式 */
+        .modern-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-primary);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-brand i {
+            font-size: 1.75rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            color: #b8b8d1;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 1px;
+        }
+
+        .nav-link.external {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-link.external:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 手机端导航样式 */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            transition: left 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            color: #b8b8d1;
+            text-decoration: none;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .mobile-nav-link:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .mobile-nav-link.active {
+            color: white;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .mobile-nav-link.external {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .mobile-nav-link.external:hover {
+            transform: translateX(10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.4);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 现代化头部导航 -->
+    <nav class="modern-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-image"></i>
+                <span>智能图片压缩</span>
+            </div>
+            
+            <!-- 桌面端导航菜单 -->
+            <div class="nav-links desktop-nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>首页</span>
+                </a>
+                <a href="about.html" class="nav-link active">
+                    <i class="fas fa-users"></i>
+                    <span>关于我们</span>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>联系我们</span>
+                </a>
+                <a href="privacy.html" class="nav-link">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>隐私政策</span>
+                </a>
+                <a href="en/about.html" class="nav-link external">
+                    <i class="fas fa-language"></i>
+                    <span>English</span>
+                </a>
+            </div>
+            
+            <!-- 手机端汉堡菜单按钮 -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        
+        <!-- 手机端导航菜单 -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <a href="index.html" class="mobile-nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>首页</span>
+                </a>
+                <a href="about.html" class="mobile-nav-link active">
+                    <i class="fas fa-users"></i>
+                    <span>关于我们</span>
+                </a>
+                <a href="contact.html" class="mobile-nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>联系我们</span>
+                </a>
+                <a href="privacy.html" class="mobile-nav-link">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>隐私政策</span>
+                </a>
+                <a href="en/about.html" class="mobile-nav-link external">
+                    <i class="fas fa-language"></i>
+                    <span>English</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-users"></i> 关于传道AI</h1>
+            <p>以代码为墨，以AI为锋，赋能企业数字化新生</p>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-rocket"></i>
+                公司简介
+            </h2>
+            <div class="intro-text">
+                自2019年成立以来，传道AI始终锚定"用技术破解业务痛点，用AI激活增长潜力"的核心定位，从专注软件开发的初创团队，逐步成长为覆盖全国18个核心城市、服务超300家企业客户的数字化解决方案服务商。我们深知，在AI与产业深度融合的时代，"好的软件"不仅是代码的集合，更是贴合业务逻辑、承载战略目标的"数字引擎"，因此五年来始终以"技术深耕+需求洞察"双轮驱动，在软件开发领域持续突破，助力企业跨越数字化转型的"最后一公里"。
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-chart-line"></i>
+                核心数据
+            </h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">服务企业客户</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">团队成员</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">技术研发人员占比</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">覆盖核心城市</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">软件著作权</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">68%</div>
+                    <div class="stat-label">客户复购率</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-cogs"></i>
+                技术实力与团队建设
+            </h2>
+            <div class="intro-text">
+                传道AI构建了一支"实战型+创新型"的核心团队，现有成员120余人，其中技术研发人员占比超70%，85%拥有6年以上软件开发经验。团队核心成员均来自互联网大厂、头部科技企业，曾主导过金融风控系统、智能制造管理平台、新零售数据中台等千万级用户规模的项目开发。
+            </div>
+            <div class="highlight-box">
+                <strong>技术总监张工</strong>曾带领团队完成某上市车企的AI质检系统开发，将产品检测效率提升60%，误判率降低至0.3%以下。
+            </div>
+            <div class="intro-text">
+                我们始终坚持"技术反哺业务"的理念，设立专项研发基金，每年投入营收的20%用于AI算法优化、低代码平台迭代、行业解决方案创新，目前已自主研发出"传道低代码开发平台""AI数据清洗工具""智能业务流程引擎"三大核心技术产品，累计获得软件著作权42项、发明专利6项，技术实力通过ISO9001质量管理体系、CMMI3软件能力成熟度模型双重认证。
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i>
+                核心业务与服务体系
+            </h2>
+            <div class="business-section">
+                <div class="business-item">
+                    <div class="business-title">定制化软件开发</div>
+                    <p>针对企业个性化需求，提供从需求调研、架构设计、代码开发到测试上线的全流程服务，涵盖企业管理系统（ERP/CRM/OA）、行业专用软件（医疗数据管理平台、教育智慧课堂系统、制造业MES系统）、移动端应用（APP/小程序/H5）三大方向。</p>
+                    <div class="example-box">
+                        <strong>成功案例：</strong>为某连锁教育机构开发的"智慧教学管理平台"，整合了课程预约、学情分析、家校互动、教务统计四大模块，上线后帮助机构将教务人员效率提升45%，家长满意度从82%提升至96%。
+                    </div>
+                </div>
+
+                <div class="business-item">
+                    <div class="business-title">AI赋能型解决方案</div>
+                    <p>将AI技术与行业场景深度结合，开发具备智能决策、自动化处理能力的软件系统。</p>
+                    <div class="example-box">
+                        <strong>AI风控审核系统：</strong>通过机器学习算法实时分析用户信用数据，将审核效率从人工1小时/单缩短至3分钟/单，坏账率降低18%。
+                    </div>
+                    <div class="example-box">
+                        <strong>AI智能推荐系统：</strong>基于用户消费行为画像实现精准商品推送，帮助客户客单价提升25%，复购率提升30%。
+                    </div>
+                </div>
+
+                <div class="business-item">
+                    <div class="business-title">全周期技术运维服务</div>
+                    <p>打破"开发即终点"的传统模式，为客户提供1-3年的专属运维服务，包括系统bug修复、功能迭代、性能优化、数据安全保障等，配备7×24小时技术支持团队，平均响应时间不超过30分钟，确保软件系统长期稳定运行。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-heart"></i>
+                社会责任与品牌理念
+            </h2>
+            <div class="social-responsibility">
+                <h3 style="margin-bottom: 20px;">技术向善，传递价值</h3>
+                <p>传道AI始终践行"技术向善"的价值观，将企业发展与社会价值紧密结合。</p>
+                <div style="margin: 20px 0;">
+                    <p><strong>2021年：</strong>发起"AI助企公益计划"，为15家中小微企业免费提供基础版管理软件开发与数字化咨询服务。</p>
+                    <p><strong>2023年：</strong>联合高校开展"传道AI技术实训营"，累计培养500余名具备实战能力的软件开发人才。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">
+                <i class="fas fa-eye"></i>
+                未来展望
+            </h2>
+            <div class="intro-text">
+                面向未来，传道AI将继续以"软件开发"为根基，以"AI技术创新"为突破点，计划在2025年推出面向中小企业的"AI轻量化管理套件"，降低数字化转型成本；同时拓展工业软件、跨境电商系统等新赛道，打造更多行业标杆项目。
+            </div>
+            <div class="highlight-box">
+                我们始终记得，"传道"二字不仅是品牌名，更是我们的初心——既要传递前沿的技术与方案，更要传递"以技术服务业务"的理念，与每一位客户携手，在数字化浪潮中共同成长，用代码与AI，书写企业发展的新篇章。
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> 返回首页
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 手机端菜单切换功能
+        document.addEventListener("DOMContentLoaded", () => {
+            const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+            const mobileNav = document.getElementById("mobileNav");
+            
+            if (mobileMenuToggle && mobileNav) {
+                mobileMenuToggle.addEventListener("click", () => {
+                    mobileMenuToggle.classList.toggle("active");
+                    mobileNav.classList.toggle("active");
+                    document.body.style.overflow = mobileNav.classList.contains("active") ? "hidden" : "auto";
+                });
+                
+                // 点击菜单项后关闭菜单
+                const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener("click", () => {
+                        mobileMenuToggle.classList.remove("active");
+                        mobileNav.classList.remove("active");
+                        document.body.style.overflow = "auto";
+                    });
+                });
+                
+                // 点击菜单外部关闭菜单
+                mobileNav.addEventListener("click", (e) => {
+                    if (e.target === mobileNav) {
+                        mobileMenuToggle.classList.remove("active");
+                        mobileNav.classList.remove("active");
+                        document.body.style.overflow = "auto";
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- 版本信息 -->
+    <footer style="text-align: center; padding: 20px; background: rgba(0,0,0,0.1); color: #b8b8d1; font-size: 0.9rem; margin-top: 40px;">
+        <p>智能图片压缩工具 v1.0.0 | © 2025 传道AI | 技术支持：hcf@foxmail.com</p>
+    </footer>
+</body>
+</html>
